@@ -29,7 +29,7 @@ namespace WebProject.Controllers
           {
               return NotFound();
           }
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(s=>s.Post).ToListAsync();
         }
 
         [HttpPost("Auth")]

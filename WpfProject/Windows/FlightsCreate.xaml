@@ -19,8 +19,6 @@
         <Label Content="Компания:" HorizontalAlignment="Left" Margin="7,143,0,0" VerticalAlignment="Top"/>
         <ComboBox  ItemsSource="{Binding Airplane}" SelectedItem="{Binding SelectedAirplane}" DisplayMemberPath="AirplaneTitle" HorizontalAlignment="Left" Margin="85,174,0,0"  VerticalAlignment="Top" Height="21" Width="131" Background="#FFE2CFCF"/>
         <Label Content="Самолёт:" HorizontalAlignment="Left" Margin="16,169,0,0" VerticalAlignment="Top"/>
-        <Label Content="Колличество мест:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-        <TextBox Text="{Binding Seats}" HorizontalAlignment="Left" Margin="127,204,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="21" Width="70" Background="#FFE2CFCF"/>
         <Button Content="Добавить" Command="{Binding Save}" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Height="45"/>
     </Grid>
 </Window>

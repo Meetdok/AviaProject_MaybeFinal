@@ -30,22 +30,22 @@ namespace WpfProject.Windows
 
       
 
-        private async void AddUsersSave(object sender, RoutedEventArgs e)
-        {
-            var json = await HttpApi.Post("Users", "SaveUser", new User
-            {
-                FirstName = txt_Name.Text,
-                LastName = txt_LastName.Text,
-                PatronomycName = txt_PatronomycName.Text,
-                PhoneNumber = long.Parse(txt_Phone.Text),
-                Mail = txt_Email.Text,
-                Login = txt_Login.Text,
-                Password = txt_Password.Text,
-                Post = new Post { PostName = txt_Role.Text }
-            });
-            User result = HttpApi.Deserialize<User>(json);
+        //private async void AddUsersSave(object sender, RoutedEventArgs e)
+        //{
+        //    var json = await HttpApi.Post("Users", "SaveUser", new User
+        //    {
+        //        FirstName = txt_Name.Text,
+        //        LastName = txt_LastName.Text,
+        //        PatronomycName = txt_PatronomycName.Text,
+        //        PhoneNumber = long.Parse(txt_Phone.Text),
+        //        Mail = txt_Email.Text,
+        //        Login = txt_Login.Text,
+        //        Password = txt_Password.Text,
+        //        Post = new Post { PostName = txt_Role.Text }
+        //    });
+        //    User result = HttpApi.Deserialize<User>(json);
 
-            MessageBox.Show("Сохранилось!");
-        }
+        //    MessageBox.Show("Сохранилось!");
+        //}
     }
 }

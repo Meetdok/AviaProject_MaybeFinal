@@ -23,7 +23,7 @@ namespace WpfProject.ViewModels
 
         private List<FlightCompany> flightCompany;
         private List<Service> services;
-        private List<Service> serviceees;
+        
 
         public List<FlightCompany> FlightCompany
         {

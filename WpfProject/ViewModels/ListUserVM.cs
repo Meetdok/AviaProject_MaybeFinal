@@ -17,6 +17,26 @@ namespace WpfProject.ViewModels
         private List<User> user;
         private List<Post> post;
 
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Patron { get; set; }
+        public int Phone { get; set; }
+        public string Mail { get; set; }
+        public string Login { get; set; }
+        public string Pass { get; set; }
+
+        private Post posts;
+
+        public Post SelectedPost
+        {
+            get => posts;
+            set
+            {
+                posts = value;
+                Signal();
+            }
+        }
+
         public List<User> User
         {
             get => user;
@@ -40,7 +60,7 @@ namespace WpfProject.ViewModels
         }
 
         public CommandVM DeleteUser { get; set; }
-
+        public CommandVM Save { get; set; }
 
         public ListUserVM()
         {
@@ -51,6 +71,25 @@ namespace WpfProject.ViewModels
 
                 var json2 = await HttpApi.Post("Posts", "list", null);
                 Post = HttpApi.Deserialize<List<Post>>(json2);
+
+            });
+
+            Save = new CommandVM(async () =>
+            {
+                var json = await HttpApi.Post("Users", "SaveUser", new User
+                {
+                    FirstName = Name,
+                    LastName = LastName,
+                    PatronomycName = Patron,
+                    PhoneNumber = Phone,
+                    Mail = Mail,
+                    Login = Login,
+                    Password = Pass,
+                    PostId = SelectedPost.PostId
+                });
+                User result = HttpApi.Deserialize<User>(json);
+
+                MessageBox.Show("Сохранилось!");
 
             });
 
